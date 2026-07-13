@@ -39,8 +39,12 @@ const ProfileEditorPro = () => {
   // EMPTY RESET HANDLERS
   // -------------------------
 
-  const resetName = () => {};
-  const resetSurname = () => {};
+  const resetName = () => {
+    setUser((prev) => ({ ...prev, name: initialUser.name }));
+  };
+  const resetSurname = () => {
+    setUser((prev) => ({ ...prev, surname: initialUser.surname }));
+  };
   const resetAge = () => {};
 
   const resetEmail = () => {};
@@ -77,7 +81,9 @@ const ProfileEditorPro = () => {
         <input
           value={user.name}
           placeholder="Type your name..."
-          onChange={(e) => {}}
+          onChange={(e) => {
+            setUser((prev) => ({ ...prev, name: e.target.value }));
+          }}
         />
         <button onClick={resetName}>Reset</button>
       </label>
@@ -91,7 +97,12 @@ const ProfileEditorPro = () => {
         <input
           value={user.surname}
           placeholder="Type your surname..."
-          onChange={(e) => {}}
+          onChange={(e) => {
+            setUser((prev) => ({
+              ...prev,
+              surname: e.target.value,
+            }));
+          }}
         />
         <button onClick={resetSurname}>Reset</button>
       </label>

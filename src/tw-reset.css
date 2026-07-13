@@ -1,3 +1,7 @@
 .tw-reset * {
   all: revert;
 }
+
+body {
+  margin-left: 32px;
+}
