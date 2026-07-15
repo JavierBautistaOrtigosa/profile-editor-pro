@@ -16,6 +16,7 @@ const ProfileEditorPro = () => {
       street: "",
       code: "",
     },
+    //     Working here...
     preferences: {
       theme: "",
       language: "",
@@ -45,21 +46,94 @@ const ProfileEditorPro = () => {
   const resetSurname = () => {
     setUser((prev) => ({ ...prev, surname: initialUser.surname }));
   };
-  const resetAge = () => {};
+  const resetAge = () => {
+    setUser((prev) => ({ ...prev, age: initialUser.age }));
+  };
 
-  const resetEmail = () => {};
-  const resetPhone = () => {};
+  const resetEmail = () => {
+    setUser((prev) => ({
+      ...prev,
+      contact: { ...prev, email: initialUser.contact.email },
+    }));
+  };
+  const resetPhone = () => {
+    setUser((prev) => ({
+      ...prev,
+      contact: {
+        ...prev,
+        phone: initialUser.contact.phone,
+      },
+    }));
+  };
 
-  const resetState = () => {};
-  const resetCity = () => {};
-  const resetStreet = () => {};
-  const resetCode = () => {};
+  const resetState = () => {
+    setUser((prev) => ({
+      ...prev,
+      address: { ...prev, state: initialUser.address.state },
+    }));
+  };
+  const resetCity = () => {
+    setUser((prev) => ({
+      ...prev,
+      address: { city: initialUser.address.city },
+    }));
+  };
+  const resetStreet = () => {
+    setUser((prev) => ({
+      ...prev,
+      address: { street: initialUser.address.street },
+    }));
+  };
+  const resetCode = () => {
+    setUser((prev) => ({
+      ...prev,
+      address: { ...prev, code: initialUser.address.code },
+    }));
+  };
 
-  const resetTheme = () => {};
-  const resetLanguage = () => {};
+  const resetTheme = () => {
+    setUser((prev) => ({
+      ...prev,
+      preferences: {
+        ...prev.preferences,
+        theme: initialUser.preferences.theme,
+      },
+    }));
+  };
+  const resetLanguage = () => {
+    setUser((prev) => ({
+      ...prev,
+      preferences: {
+        ...prev.preferences,
+        language: initialUser.preferences.language,
+      },
+    }));
+  };
 
-  const resetEmailNotif = () => {};
-  const resetSmsNotif = () => {};
+  const resetEmailNotif = () => {
+    setUser((prev) => ({
+      ...prev,
+      preferences: {
+        ...prev.preferences,
+        notifications: {
+          ...prev.preferences.notifications,
+          email: initialUser.preferences.notifications.email,
+        },
+      },
+    }));
+  };
+  const resetSmsNotif = () => {
+    setUser((prev) => ({
+      ...prev,
+      preferences: {
+        ...prev.preferences,
+        notifications: {
+          ...prev.preferences.notifications,
+          sms: initialUser.preferences.notifications.sms,
+        },
+      },
+    }));
+  };
   const resetPushNotif = () => {};
 
   const resetSkill1 = () => {};
@@ -74,7 +148,7 @@ const ProfileEditorPro = () => {
     <div className="tw-reset">
       <h2>Profile Editor Pro</h2>
 
-      {/* BASIC INFO */}
+      {/* BASIC INFO - Done */}
       <label>
         Name: {user.name}
         <br />
@@ -116,7 +190,12 @@ const ProfileEditorPro = () => {
         <input
           value={user.age}
           placeholder="Type your age..."
-          onChange={(e) => {}}
+          onChange={(e) =>
+            setUser((prev) => ({
+              ...prev,
+              age: e.target.value,
+            }))
+          }
         />
         <button onClick={resetAge}>Reset</button>
       </label>
@@ -124,14 +203,19 @@ const ProfileEditorPro = () => {
       <br />
       <br />
 
-      {/* CONTACT */}
+      {/* CONTACT - Done */}
       <label>
         Email: {user.contact.email}
         <br />
         <input
           value={user.contact.email}
           placeholder="Type your email..."
-          onChange={(e) => {}}
+          onChange={(e) => {
+            setUser((prev) => ({
+              ...prev,
+              contact: { ...prev, email: e.target.value },
+            }));
+          }}
         />
         <button onClick={resetEmail}>Reset</button>
       </label>
@@ -145,7 +229,12 @@ const ProfileEditorPro = () => {
         <input
           value={user.contact.phone}
           placeholder="Type your phone..."
-          onChange={(e) => {}}
+          onChange={(e) => {
+            setUser((prev) => ({
+              ...prev,
+              contact: { ...prev, phone: e.target.value },
+            }));
+          }}
         />
         <button onClick={resetPhone}>Reset</button>
       </label>
@@ -153,14 +242,19 @@ const ProfileEditorPro = () => {
       <br />
       <br />
 
-      {/* ADDRESS */}
+      {/* ADDRESS - Done */}
       <label>
         State: {user.address.state}
         <br />
         <input
           value={user.address.state}
           placeholder="Type your state..."
-          onChange={(e) => {}}
+          onChange={(e) => {
+            setUser((prev) => ({
+              ...prev,
+              address: { ...prev, state: e.target.value },
+            }));
+          }}
         />
         <button onClick={resetState}>Reset</button>
       </label>
@@ -174,7 +268,12 @@ const ProfileEditorPro = () => {
         <input
           value={user.address.city}
           placeholder="Type your city..."
-          onChange={(e) => {}}
+          onChange={(e) => {
+            setUser((prev) => ({
+              ...prev,
+              address: { ...prev, city: e.target.value },
+            }));
+          }}
         />
         <button onClick={resetCity}>Reset</button>
       </label>
@@ -188,7 +287,12 @@ const ProfileEditorPro = () => {
         <input
           value={user.address.street}
           placeholder="Type your street..."
-          onChange={(e) => {}}
+          onChange={(e) => {
+            setUser((prev) => ({
+              ...prev,
+              address: { ...prev, street: e.target.value },
+            }));
+          }}
         />
         <button onClick={resetStreet}>Reset</button>
       </label>
@@ -202,7 +306,12 @@ const ProfileEditorPro = () => {
         <input
           value={user.address.code}
           placeholder="Type your code..."
-          onChange={(e) => {}}
+          onChange={(e) => {
+            setUser((prev) => ({
+              ...prev,
+              address: { ...prev, code: e.target.value },
+            }));
+          }}
         />
         <button onClick={resetCode}>Reset</button>
       </label>
@@ -210,14 +319,19 @@ const ProfileEditorPro = () => {
       <br />
       <br />
 
-      {/* PREFERENCES */}
+      {/* PREFERENCES - Done */}
       <label>
         Theme: {user.preferences.theme}
         <br />
         <input
           value={user.preferences.theme}
           placeholder="light/dark"
-          onChange={(e) => {}}
+          onChange={(e) => {
+            setUser((prev) => ({
+              ...prev,
+              preferences: { ...prev.preferences, theme: e.target.value },
+            }));
+          }}
         />
         <button onClick={resetTheme}>Reset</button>
       </label>
@@ -231,7 +345,12 @@ const ProfileEditorPro = () => {
         <input
           value={user.preferences.language}
           placeholder="Type your language..."
-          onChange={(e) => {}}
+          onChange={(e) => {
+            setUser((prev) => ({
+              ...prev,
+              preferences: { ...prev.preferences, language: e.target.value },
+            }));
+          }}
         />
         <button onClick={resetLanguage}>Reset</button>
       </label>
@@ -246,7 +365,18 @@ const ProfileEditorPro = () => {
         <input
           type="checkbox"
           checked={user.preferences.notifications.email}
-          onChange={() => {}}
+          onChange={(e) => {
+            setUser((prev) => ({
+              ...prev,
+              preferences: {
+                ...prev.preferences,
+                notifications: {
+                  ...prev.notifications,
+                  email: e.target.checked,
+                },
+              },
+            }));
+          }}
         />
         <button onClick={resetEmailNotif}>Reset</button>
       </label>
@@ -260,7 +390,18 @@ const ProfileEditorPro = () => {
         <input
           type="checkbox"
           checked={user.preferences.notifications.sms}
-          onChange={() => {}}
+          onChange={(e) => {
+            setUser((prev) => ({
+              ...prev,
+              preferences: {
+                ...prev.preferences,
+                notifications: {
+                  ...prev.preferences.notifications,
+                  sms: e.target.checked,
+                },
+              },
+            }));
+          }}
         />
         <button onClick={resetSmsNotif}>Reset</button>
       </label>
