@@ -1,0 +1,12 @@
+src/
+  components/
+    BasicInfoSection.jsx
+    ContactSection.jsx
+    AddressSection.jsx
+    PreferencesSection.jsx
+    NotificationsSection.jsx
+    SkillsSection.jsx
+    EmergencyContactSection.jsx
+    TextField.jsx
+    CheckboxField.jsx
+    SkillInput.jsx
