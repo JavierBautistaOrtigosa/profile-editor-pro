@@ -1,7 +1,12 @@
 import React from 'react'
 import TextField from './TextField'
 
-const PreferencesSection = ({ user, setUser, resetTheme, resetLanguage }) => {
+const PreferencesSection = ({
+  user,
+  updateField,
+  resetTheme,
+  resetLanguage
+}) => {
   return (
     <div className='section-block'>
       <h3>Preferences</h3>
@@ -9,32 +14,16 @@ const PreferencesSection = ({ user, setUser, resetTheme, resetLanguage }) => {
       <TextField
         label='Theme'
         value={user.preferences.theme}
-        placeholder='light / dark'
-        onChange={(v) =>
-          setUser((prev) => ({
-            ...prev,
-            preferences: {
-              ...prev.preferences,
-              theme: v
-            }
-          }))
-        }
+        placeholder='Type your preferred theme...'
+        onChange={(v) => updateField('preferences.theme', v)}
         onReset={resetTheme}
       />
 
       <TextField
         label='Language'
         value={user.preferences.language}
-        placeholder='Type your language...'
-        onChange={(v) =>
-          setUser((prev) => ({
-            ...prev,
-            preferences: {
-              ...prev.preferences,
-              language: v
-            }
-          }))
-        }
+        placeholder='Type your preferred language...'
+        onChange={(v) => updateField('preferences.language', v)}
         onReset={resetLanguage}
       />
     </div>

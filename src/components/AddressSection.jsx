@@ -3,77 +3,45 @@ import TextField from './TextField'
 
 const AddressSection = ({
   user,
-  setUser,
-  resetState,
-  resetCity,
+  updateField,
   resetStreet,
+  resetCity,
+  resetState,
   resetCode
 }) => {
   return (
     <div className='section-block'>
-      <h3>Address Information</h3>
+      <h3>Address</h3>
 
       <TextField
-        label='State'
-        value={user.address.state}
-        placeholder='Type your state...'
-        onChange={(v) =>
-          setUser((prev) => ({
-            ...prev,
-            address: {
-              ...prev.address,
-              state: v
-            }
-          }))
-        }
-        onReset={resetState}
+        label='Street'
+        value={user.address.street}
+        placeholder='Type your street...'
+        onChange={(v) => updateField('address.street', v)}
+        onReset={resetStreet}
       />
 
       <TextField
         label='City'
         value={user.address.city}
         placeholder='Type your city...'
-        onChange={(v) =>
-          setUser((prev) => ({
-            ...prev,
-            address: {
-              ...prev.address,
-              city: v
-            }
-          }))
-        }
+        onChange={(v) => updateField('address.city', v)}
         onReset={resetCity}
       />
 
       <TextField
-        label='Street'
-        value={user.address.street}
-        placeholder='Type your street...'
-        onChange={(v) =>
-          setUser((prev) => ({
-            ...prev,
-            address: {
-              ...prev.address,
-              street: v
-            }
-          }))
-        }
-        onReset={resetStreet}
+        label='State'
+        value={user.address.state}
+        placeholder='Type your state...'
+        onChange={(v) => updateField('address.state', v)}
+        onReset={resetState}
       />
 
       <TextField
-        label='Code'
+        label='Postal Code'
         value={user.address.code}
-        placeholder='Type your code...'
-        onChange={(v) =>
-          setUser((prev) => ({
-            ...prev,
-            address: {
-              ...prev.address,
-              code: v
-            }
-          }))
-        }
+        placeholder='Type your postal code...'
+        onChange={(v) => updateField('address.code', v)}
         onReset={resetCode}
       />
     </div>

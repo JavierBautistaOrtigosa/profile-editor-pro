@@ -43,6 +43,26 @@ const ProfileEditorPro = () => {
 
   const [user, setUser] = useState(initialUser)
 
+  //   updateField()
+  const updateField = (path, value) => {
+    setUser((prev) => {
+      const newUser = structuredClone(prev) // safe deep clone
+
+      const keys = path.split('.') // ["address", "city"]
+      let current = newUser
+
+      // walk the object until the second‑last key
+      for (let i = 0; i < keys.length - 1; i++) {
+        current = current[keys[i]]
+      }
+
+      // update the final key
+      current[keys[keys.length - 1]] = value
+
+      return newUser
+    })
+  }
+
   // -------------------------
   // EMPTY RESET HANDLERS
   // -------------------------
@@ -214,6 +234,7 @@ const ProfileEditorPro = () => {
 
       <BasicInfoSection
         user={user}
+        updateField={updateField}
         setUser={setUser}
         resetName={resetName}
         resetSurname={resetSurname}
@@ -221,12 +242,14 @@ const ProfileEditorPro = () => {
       />
       <ContactSection
         user={user}
+        updateField={updateField}
         setUser={setUser}
         resetEmail={resetEmail}
         resetPhone={resetPhone}
       />
       <AddressSection
         user={user}
+        updateField={updateField}
         setUser={setUser}
         resetState={resetState}
         resetCity={resetCity}
@@ -235,12 +258,14 @@ const ProfileEditorPro = () => {
       />
       <PreferencesSection
         user={user}
+        updateField={updateField}
         setUser={setUser}
         resetTheme={resetTheme}
         resetLanguage={resetLanguage}
       />
       <NotificationsSection
         user={user}
+        updateField={updateField}
         setUser={setUser}
         resetEmailNotif={resetEmailNotif}
         resetSmsNotif={resetSmsNotif}
@@ -248,6 +273,7 @@ const ProfileEditorPro = () => {
       />
       <SkillsSection
         user={user}
+        updateField={updateField}
         setUser={setUser}
         resetSkill1={resetSkill1}
         resetSkill2={resetSkill2}
@@ -255,6 +281,7 @@ const ProfileEditorPro = () => {
       />
       <EmergencyContactSection
         user={user}
+        updateField={updateField}
         setUser={setUser}
         resetEmergencyName={resetEmergencyName}
         resetEmergencyRelation={resetEmergencyRelation}

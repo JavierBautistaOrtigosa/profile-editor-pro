@@ -3,7 +3,7 @@ import TextField from './TextField'
 
 const BasicInfoSection = ({
   user,
-  setUser,
+  updateField,
   resetName,
   resetSurname,
   resetAge
@@ -16,12 +16,7 @@ const BasicInfoSection = ({
         label='Name'
         value={user.name}
         placeholder='Type your name...'
-        onChange={(v) =>
-          setUser((prev) => ({
-            ...prev,
-            name: v
-          }))
-        }
+        onChange={(v) => updateField('name', v)}
         onReset={resetName}
       />
 
@@ -29,12 +24,7 @@ const BasicInfoSection = ({
         label='Surname'
         value={user.surname}
         placeholder='Type your surname...'
-        onChange={(v) =>
-          setUser((prev) => ({
-            ...prev,
-            surname: v
-          }))
-        }
+        onChange={(v) => updateField('surname', v)}
         onReset={resetSurname}
       />
 
@@ -42,12 +32,7 @@ const BasicInfoSection = ({
         label='Age'
         value={user.age}
         placeholder='Type your age...'
-        onChange={(v) =>
-          setUser((prev) => ({
-            ...prev,
-            age: v
-          }))
-        }
+        onChange={(v) => updateField('age', v)}
         onReset={resetAge}
       />
     </div>

@@ -3,7 +3,7 @@ import SkillInput from './SkillInput'
 
 const SkillsSection = ({
   user,
-  setUser,
+  updateField,
   resetSkill1,
   resetSkill2,
   resetSkill3
@@ -15,36 +15,24 @@ const SkillsSection = ({
       <SkillInput
         label='Skill 1'
         value={user.skills[0]}
-        onChange={(v) =>
-          setUser((prev) => ({
-            ...prev,
-            skills: prev.skills.map((skill, index) => (index === 0 ? v : skill))
-          }))
-        }
+        placeholder='Type a skill...'
+        onChange={(v) => updateField('skills.0', v)}
         onReset={resetSkill1}
       />
 
       <SkillInput
         label='Skill 2'
         value={user.skills[1]}
-        onChange={(v) =>
-          setUser((prev) => ({
-            ...prev,
-            skills: prev.skills.map((skill, index) => (index === 1 ? v : skill))
-          }))
-        }
+        placeholder='Type a skill...'
+        onChange={(v) => updateField('skills.1', v)}
         onReset={resetSkill2}
       />
 
       <SkillInput
         label='Skill 3'
         value={user.skills[2]}
-        onChange={(v) =>
-          setUser((prev) => ({
-            ...prev,
-            skills: prev.skills.map((skill, index) => (index === 2 ? v : skill))
-          }))
-        }
+        placeholder='Type a skill...'
+        onChange={(v) => updateField('skills.2', v)}
         onReset={resetSkill3}
       />
     </div>

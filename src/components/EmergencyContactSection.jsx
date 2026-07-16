@@ -3,7 +3,7 @@ import TextField from './TextField'
 
 const EmergencyContactSection = ({
   user,
-  setUser,
+  updateField,
   resetEmergencyName,
   resetEmergencyRelation,
   resetEmergencyPhone
@@ -13,18 +13,10 @@ const EmergencyContactSection = ({
       <h3>Emergency Contact</h3>
 
       <TextField
-        label='Emergency Name'
+        label='Name'
         value={user.emergencyContact.name}
         placeholder='Type emergency contact name...'
-        onChange={(v) =>
-          setUser((prev) => ({
-            ...prev,
-            emergencyContact: {
-              ...prev.emergencyContact,
-              name: v
-            }
-          }))
-        }
+        onChange={(v) => updateField('emergencyContact.name', v)}
         onReset={resetEmergencyName}
       />
 
@@ -32,32 +24,15 @@ const EmergencyContactSection = ({
         label='Relation'
         value={user.emergencyContact.relation}
         placeholder='Type relation...'
-        onChange={(v) =>
-          setUser((prev) => ({
-            ...prev,
-            emergencyContact: {
-              ...prev.emergencyContact,
-              relation: v
-            }
-          }))
-        }
+        onChange={(v) => updateField('emergencyContact.relation', v)}
         onReset={resetEmergencyRelation}
       />
 
       <TextField
-        label='Emergency Phone'
+        label='Phone'
         value={user.emergencyContact.phone}
-        placeholder='LAST'
-        //   placeholder='Type emergency phone...'
-        onChange={(v) =>
-          setUser((prev) => ({
-            ...prev,
-            emergencyContact: {
-              ...prev.emergencyContact,
-              phone: v
-            }
-          }))
-        }
+        placeholder='Type emergency contact phone...'
+        onChange={(v) => updateField('emergencyContact.phone', v)}
         onReset={resetEmergencyPhone}
       />
     </div>
