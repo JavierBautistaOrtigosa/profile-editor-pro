@@ -1,7 +1,7 @@
 import React from 'react'
 import TextField from './TextField'
 
-const ContactSection = ({ user, updateField, resetEmail, resetPhone }) => {
+const ContactSection = ({ user, updateField, resetField }) => {
   return (
     <div className='section-block'>
       <h3>Contact Information</h3>
@@ -11,7 +11,7 @@ const ContactSection = ({ user, updateField, resetEmail, resetPhone }) => {
         value={user.contact.email}
         placeholder='Type your email...'
         onChange={(v) => updateField('contact.email', v)}
-        onReset={resetEmail}
+        onReset={() => resetField('contact.email')}
       />
 
       <TextField
@@ -19,7 +19,7 @@ const ContactSection = ({ user, updateField, resetEmail, resetPhone }) => {
         value={user.contact.phone}
         placeholder='Type your phone...'
         onChange={(v) => updateField('contact.phone', v)}
-        onReset={resetPhone}
+        onReset={() => resetField('contact.phone')}
       />
     </div>
   )

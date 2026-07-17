@@ -1,13 +1,7 @@
 import React from 'react'
 import CheckboxField from './CheckboxField'
 
-const NotificationsSection = ({
-  user,
-  updateField,
-  resetEmailNotif,
-  resetSmsNotif,
-  resetPushNotif
-}) => {
+const NotificationsSection = ({ user, updateField, resetField }) => {
   return (
     <div className='section-block'>
       <h3>Notifications</h3>
@@ -16,21 +10,21 @@ const NotificationsSection = ({
         label='Email Notifications'
         checked={user.preferences.notifications.email}
         onChange={(v) => updateField('preferences.notifications.email', v)}
-        onReset={resetEmailNotif}
+        onReset={() => resetField('preferences.notifications.email')}
       />
 
       <CheckboxField
         label='SMS Notifications'
         checked={user.preferences.notifications.sms}
         onChange={(v) => updateField('preferences.notifications.sms', v)}
-        onReset={resetSmsNotif}
+        onReset={() => resetField('preferences.notifications.sms')}
       />
 
       <CheckboxField
         label='Push Notifications'
         checked={user.preferences.notifications.push}
         onChange={(v) => updateField('preferences.notifications.push', v)}
-        onReset={resetPushNotif}
+        onReset={() => resetField('preferences.notifications.push')}
       />
     </div>
   )
