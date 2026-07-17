@@ -11,7 +11,7 @@ const EmergencyContactSection = ({ user, updateField, resetField }) => {
         value={user.emergencyContact.name}
         placeholder='Type emergency contact name...'
         onChange={(v) => updateField('emergencyContact.name', v)}
-        onReset={() => resetField('emergecyContact.name')}
+        onReset={() => resetField('emergencyContact.name')}
       />
 
       <TextField
@@ -19,7 +19,7 @@ const EmergencyContactSection = ({ user, updateField, resetField }) => {
         value={user.emergencyContact.relation}
         placeholder='Type relation...'
         onChange={(v) => updateField('emergencyContact.relation', v)}
-        onReset={() => resetField('emergecyContact.relationship')}
+        onReset={() => resetField('emergencyContact.relation')}
       />
 
       <TextField
@@ -27,7 +27,7 @@ const EmergencyContactSection = ({ user, updateField, resetField }) => {
         value={user.emergencyContact.phone}
         placeholder='Type emergency contact phone...'
         onChange={(v) => updateField('emergencyContact.phone', v)}
-        onReset={() => resetField('emergecyContact.phone')}
+        onReset={() => resetField('emergencyContact.phone')}
       />
     </div>
   )

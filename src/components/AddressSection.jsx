@@ -35,7 +35,7 @@ const AddressSection = ({ user, updateField, resetField }) => {
         value={user.address.code}
         placeholder='Type your postal code...'
         onChange={(v) => updateField('address.code', v)}
-        onReset={() => resetField('address.zip')}
+        onReset={() => resetField('address.code')}
       />
     </div>
   )

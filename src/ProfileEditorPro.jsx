@@ -84,6 +84,11 @@ const ProfileEditorPro = () => {
     })
   }
 
+  // resetAll
+  const resetAll = () => {
+    setUser(structuredClone(initialUser))
+  }
+
   return (
     <div className='tw-reset'>
       <h2>Profile Editor Pro</h2>
@@ -129,6 +134,21 @@ const ProfileEditorPro = () => {
         updateField={updateField}
         resetField={resetField}
       />
+
+      {/* Reset All Button */}
+      <div style={{ marginTop: '2rem' }}>
+        <button
+          onClick={resetAll}
+          style={{
+            padding: '0.5rem 1rem',
+            backgroundColor: '#e11d48',
+            color: 'white',
+            borderRadius: '6px'
+          }}
+        >
+          Reset All
+        </button>
+      </div>
     </div>
   )
 }
